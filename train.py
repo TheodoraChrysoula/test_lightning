@@ -26,7 +26,7 @@ plt.xlabel("X")
 plt.ylabel("y")
 plt.legend()
 plt.title("Linear Regression")
-plt.savefig("outputs/regression_plot.png", dpi=300, bbox_inches='tught')
+plt.savefig("outputs/regression_plot.png", dpi=300, bbox_inches='tight')
 plt.show()
 
 with open("outputs/results.txt", "w") as f:

@@ -1,0 +1,4 @@
+Slope: 2.4080
+Intercept: 0.4302
+MSE: 3.2263
+R-squarred: 0.9403
