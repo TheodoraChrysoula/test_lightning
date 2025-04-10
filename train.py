@@ -1,7 +1,11 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt 
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
+
+# Create outputs directory if it doesn't exist
+os.makedirs("outputs", exist_ok=True)
 
 np.random.seed(42)
 X = np.random.rand(100, 1) * 10 # Features (100 samples, 1 feature)
@@ -22,8 +26,13 @@ plt.xlabel("X")
 plt.ylabel("y")
 plt.legend()
 plt.title("Linear Regression")
-plt.savefig("regression_plot.png")
+plt.savefig("outputs/regression_plot.png", dpi=300, bbox_inches='tught')
 plt.show()
 
-with open("results.txt", "w") as f:
-    f.write(f"Slope: {model.coef_[0][0]}\nIntercept: {model.intercept_[0]}\nMSE: {mean_squared_error(y, y_pred)}")
+with open("outputs/results.txt", "w") as f:
+    f.write(f"Slope: {model.coef_[0][0]:.4f}\n")
+    f.write(f"Intercept: {model.intercept_[0]:.4f}\n")
+    f.write(f"MSE: {mean_squared_error(y,y_pred):.4f}\n")
+    f.write(f"R-squarred: {model.score(X,y):.4f}\n")
+
+print("Results save to outputs/directory")
